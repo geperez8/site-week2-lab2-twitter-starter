@@ -6,14 +6,14 @@ export default function UserProfile({ userProfile }) {
     <div className="col user-profile">
       <div className="card">
         <div className="card-bg" />
-        <CardContent />
+        <CardContent name = {userProfile.name} handle ={userProfile.handle}/>
         <CardFooter />
       </div>
     </div>
   )
 }
 
-export function CardContent(props) {
+export function CardContent({name, handle}) {
   return (
     <div className="card-content">
       <span className="fa-stack add-picture-icon">
@@ -22,20 +22,20 @@ export function CardContent(props) {
         </i>
       </span>
       <div className="twitter-handle">
-        <h3>{props.name}</h3>
-        <p>@{props.handle}</p>
+        <h3>{name}</h3>
+        <p>@{handle}</p>
       </div>
     </div>
   )
 }
 
-export function CardFooter(props) {
+export function CardFooter({numTweets, numFollowers}) {
   return (
     <div className="card-footer">
       <p>Tweets</p>
       <p>Followers</p>
-      <span className="metric">{props.numTweets ? formatNumTweets(props.numTweets) : null}</span>
-      <span className="metric">{props.numFollowers ? formatNumFollowers(props.numFollowers) : null}</span>
+      <span className="metric">{numTweets ? formatNumTweets(props.numTweets) : null}</span>
+      <span className="metric">{numFollowers ? formatNumFollowers(props.numFollowers) : null}</span>
     </div>
   )
 }

@@ -1,3 +1,4 @@
+import React from 'react'
 import AvatarIcon from "../AvatarIcon/AvatarIcon"
 import "./Navbar.css"
 
@@ -15,14 +16,15 @@ export default function Navbar({ navLinks }) {
 }
 
 export function NavLinks({ navLinks }) {
-  console.log(navLinks)
+  // console.log(navLinks)
   return <ul className="nav-links">{navLinks.map((navLink, index) => 
     (<NavLink key = {index} navLink= {navLink}/>))}</ul>
 }
 
-export function NavLink({ navLink, key }) {
+export function NavLink({ navLink }) {
+  
   return (
-    <li key = {key} className={navLink.className}>
+    <li className={navLink.className}>
       <i className={navLink.icon}></i>
       <span>{navLink.label}</span>
     </li>

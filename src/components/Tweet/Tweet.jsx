@@ -3,15 +3,16 @@ import { formatLikes } from "../../utils/format"
 import "./Tweet.css"
 
 export default function Tweet({ tweet }) {
+  // console.log(`tweet is ${tweet}`)
   return (
-    <div className="tweet" data-tweet-id={null}>
+    <div className="tweet" data-tweet-id={tweet.id}>
       <div className="tweet-avatar">
         <AvatarIcon />
       </div>
 
       <div className="tweet-content">
-        <TweetUserInfo />
-        <p className="tweet-text"></p>
+        <TweetUserInfo name = {tweet.name} handle = {tweet.handle}/>
+        <p className="tweet-text">{tweet.text}</p>
         <TweetFooter />
       </div>
     </div>
